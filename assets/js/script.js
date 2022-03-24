@@ -6,18 +6,37 @@ $("#currentDay").text(today.format("MMM Do, YYYY"));
 //! WHEN I view the timeblocks for that day
 //!  THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
-
-
-//! WHEN I click the save button for that timeblock
-//! THEN the text for that event is saved in local storage
 //* Local Storage
 //api.jquery.com
 $(".saveBtn").on("click", function () {
-   let userInput = $(this).siblings("textarea").val();
-   console.log(userInput);
-   let hour = $(this).parent("textarea").attr("id");
+   let userInput = $(this).siblings(".description").val();
+   let hour = $(this).siblings("textarea").attr("id");
    localStorage.setItem(hour, userInput)
 })
+
+//*select text areas with query
+//* target value with val method
+//* assign localstorage.getitem(value:hour)
+
+var hourNine = $("#h9")
+var hourTen = $("#h10")
+var hourEleven = $("#h11")
+var hourTwelve = $("#h12")
+var hourThirteen = $("#h13")
+var hourFourteen = $("#h14")
+var hourFifteen = $("#h15")
+var hourSixteen = $("#h16")
+var hourSeventeen = $("#h17")
+
+$(hourNine).val(localStorage.getItem("h9"));
+$(hourTen).val(localStorage.getItem("h10"));
+$(hourEleven).val(localStorage.getItem("h11"));
+$(hourTwelve).val(localStorage.getItem("h12"));
+$(hourThirteen).val(localStorage.getItem("h13"));
+$(hourFourteen).val(localStorage.getItem("h14"));
+$(hourFifteen).val(localStorage.getItem("h15"));
+$(hourSixteen).val(localStorage.getItem("h16"));
+$(hourSeventeen).val(localStorage.getItem("h17"));
 
 
 // var student = document.getElementById("student-names");
@@ -61,5 +80,3 @@ $(".saveBtn").on("click", function () {
 //   // When the init function is executed, the code inside renderLastGrade function will also execute
 //   renderLastGrade();
 // }
-//! WHEN I refresh the page
-//! THEN the saved events persist
