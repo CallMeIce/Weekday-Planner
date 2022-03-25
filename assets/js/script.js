@@ -1,6 +1,7 @@
 //*Setting time in header
 var today = moment();
-$("#currentDay").text(today.format("MMM Do, YYYY"));
+var now = moment().format("HH")
+$("#currentDay").text(today.format("MMM Do, YYYY, HH:mm"));
 
 
 //! WHEN I view the timeblocks for that day
@@ -18,27 +19,45 @@ $(".saveBtn").on("click", function () {
 //* target value with val method
 //* assign localstorage.getitem(value:hour)
 
-var hourNine = $("#h9")
-var hourTen = $("#h10")
-var hourEleven = $("#h11")
-var hourTwelve = $("#h12")
-var hourThirteen = $("#h13")
-var hourFourteen = $("#h14")
-var hourFifteen = $("#h15")
-var hourSixteen = $("#h16")
-var hourSeventeen = $("#h17")
+var hourNine = $("#9")
+var hourTen = $("#10")
+var hourEleven = $("#11")
+var hourTwelve = $("#12")
+var hourThirteen = $("#13")
+var hourFourteen = $("#14")
+var hourFifteen = $("#15")
+var hourSixteen = $("#16")
+var hourSeventeen = $("#17")
 
-$(hourNine).val(localStorage.getItem("h9"));
-$(hourTen).val(localStorage.getItem("h10"));
-$(hourEleven).val(localStorage.getItem("h11"));
-$(hourTwelve).val(localStorage.getItem("h12"));
-$(hourThirteen).val(localStorage.getItem("h13"));
-$(hourFourteen).val(localStorage.getItem("h14"));
-$(hourFifteen).val(localStorage.getItem("h15"));
-$(hourSixteen).val(localStorage.getItem("h16"));
-$(hourSeventeen).val(localStorage.getItem("h17"));
+$(hourNine).val(localStorage.getItem("9"));
+$(hourTen).val(localStorage.getItem("10"));
+$(hourEleven).val(localStorage.getItem("11"));
+$(hourTwelve).val(localStorage.getItem("12"));
+$(hourThirteen).val(localStorage.getItem("13"));
+$(hourFourteen).val(localStorage.getItem("14"));
+$(hourFifteen).val(localStorage.getItem("15"));
+$(hourSixteen).val(localStorage.getItem("16"));
+$(hourSeventeen).val(localStorage.getItem("17"));
 
+function currentTime() {
+   var currentHour = moment().hours()
+   $(".hour").each(function () {
+      var textAreaHour = parseInt($(this).attr("id").split("-")[1])
+      console.log(textAreaHour);
+      console.log(currentHour);
+      if (textAreaHour < currentHour) {
+         $(".hour").addClass(".past")
+         $("#h-14").addClass(".past")
+         console.log($("#h-14"));
+         console.log("test");
+      }else if (currentHour === textAreaHour) {
+            $(".hour").addClass("present")
+         }else {
+            $(".hour").addClass("future")
+         }
+})}
 
+currentTime()
 // var student = document.getElementById("student-names");
 // var grade = document.getElementById("grades");
 // var comment = document.getElementById("msg");
