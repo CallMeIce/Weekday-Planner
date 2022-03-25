@@ -7,23 +7,19 @@ This solves people not having to buy an actual planner and having a mobile plann
 
 ## Installation
 
-All you have to do is just load in from the URL, type the text in any of the boxes 
+All you have to do is just load in from the URL, type the text in any of the middle boxes.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Add your text inbetween the time and the save button to remember your event for that hour.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+! [alt = "screenshot of the planner](assets/images/screenshot.png)
 
 ## Credits
 
-Kyle -
+Kyle - https://github.com/kgiunta
 
-Dom -
+Dom - https://github.com/dev-dominick
 
 Scott McAnally
 
