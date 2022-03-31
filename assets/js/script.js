@@ -1,16 +1,13 @@
 //*Setting time in header
 var today = moment();
-var now = moment().format("HH")
+// var now = moment().format("HH")
 $("#currentDay").text(today.format("MMM Do, YYYY, HH:mm"));
 
-
-//! WHEN I view the timeblocks for that day
-//!  THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
 //* Local Storage
 //api.jquery.com
 $(".saveBtn").on("click", function () {
-   let userInput = $(this).siblings(".description").val();
+   let userInput = $(this).siblings("textarea").val();
    let hour = $(this).siblings("textarea").attr("id");
    localStorage.setItem(hour, userInput)
 })
@@ -39,25 +36,26 @@ $(hourFifteen).val(localStorage.getItem("15"));
 $(hourSixteen).val(localStorage.getItem("16"));
 $(hourSeventeen).val(localStorage.getItem("17"));
 
+//! WHEN I view the timeblocks for that day
+//!  THEN each timeblock is color coded to indicate whether it is in the past, present, or future
+
 function currentTime() {
-   var currentHour = moment().hours()
-   $(".hour").each(function () {
+   var currentHour = moment().hour()
+   $(".hour").each(function(index) {
       var textAreaHour = parseInt($(this).attr("id").split("-")[1])
       console.log(textAreaHour);
       console.log(currentHour);
+      console.log(index);
       if (textAreaHour < currentHour) {
-         $(".hour").addClass(".past")
-         $("#h-14").addClass(".past")
-         console.log($("#h-14"));
-         console.log("test");
-      }else if (currentHour === textAreaHour) {
-            $(".hour").addClass("present")
+         $(this).siblings()[0] .classList.add("past")
+         }else if (currentHour === textAreaHour) {
+            $(this).siblings()[0].classList.add("present")
          }else {
-            $(".hour").addClass("future")
+            $(this).siblings()[0].classList.add("future")
          }
-})}
-
+   })}
 currentTime()
+
 // var student = document.getElementById("student-names");
 // var grade = document.getElementById("grades");
 // var comment = document.getElementById("msg");
